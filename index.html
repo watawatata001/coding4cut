@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>코딩네컷</title>
+    <style>
+      /* 이서윤체 폰트 적용을 위한 코드 */
+      @font-face {
+        font-family: "LeeSeoyun";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff")
+          format("woff");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      /* body태그 자체에 css 요소 부여 */
+      body {
+        font-family: "LeeSeoyun";
+        margin: 100;
+        display: flex;
+        justify-content: center;
+        background-image: url("./background.png");
+        background-size : cover;
+       
+      }
+
+      .container {
+        width: 390px;
+        background-color: #ffffff;
+        height: 100%;
+        border-style: solid;
+        border-color: rgb(10, 0, 10);
+      }
+
+      .photos {
+        margin-top: 0px;
+      }
+
+      .photo-frame {
+        background-color: rgb(255, 255, 255);
+        margin: 15px 20px;
+        height: 200px;
+
+        background-size: cover;
+        position:relative;
+        cursor: pointer;
+      }
+
+      .footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .f-title {
+        font-size: 25px;
+        font-weight: 900;
+        color:rgb(197, 128, 197);
+      }
+      .f-date {
+        font-size: 15px;
+        font-weight: 500;
+        color:rgb(185, 114, 185);
+      }
+      .header{ 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .h-title {
+        font-size: 35px;
+        font-weight: 900;
+        color: rgb(196, 121, 196);
+      }
+      #image1 {
+	background-image: url('./코딩네컷1.jpeg');
+      }
+    #image2 {
+     background-image: url('./코딩네컷2.jpeg');
+    }
+    #image3 {
+     background-image: url('./코딩네컷3.jpeg');
+    }
+    #image4 {
+     background-image: url('./코딩네컷4.jpeg');
+    }
+
+      .photo-description {
+        color:white;
+        background-color:rgb(240, 194, 237);
+
+        width: fit-content;
+        padding: 0 20;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        position:absolute;
+        bottom: 0;
+
+        transform: translate(-50%);
+        left: 50%;
+        opacity: 0; 
+      }
+     
+      .showText{
+        opacity: 0;
+      }
+      .hideText{
+       opacity: 1;
+       transition:opacity 0.5s linear;
+     }      
+    </style>
+   
+   <script>
+        function showText(number) {
+  if (number === 1) {
+    document.querySelector("#desc1").classList.remove("hideText");
+    document.querySelector("#desc1").classList.add("showText");
+  } else if (number === 2) {
+    document.querySelector("#desc2").classList.remove("hideText");
+    document.querySelector("#desc2").classList.add("showText");
+  } 
+  else if (number === 3) {
+    document.querySelector("#desc3").classList.remove("hideText");
+    document.querySelector("#desc3").classList.add("showText");
+  } else {
+    document.querySelector("#desc4").classList.remove("hideText");
+    document.querySelector("#desc4").classList.add("showText");
+  }
+}
+
+// 텍스트가 감춰지는 기능
+// 1. 몇 번째 사진에서 마우스가 벗어났는지 확인(if문)
+// 2. 해당 사진을 찾아 shotText class를 지워주고, hideText는 삽입해줌
+function hideText(number) {
+  if (number === 1) {
+    document.querySelector("#desc1").classList.remove("showText");
+    document.querySelector("#desc1").classList.add("hideText");
+  } 
+    else if (number === 2) {
+    document.querySelector("#desc2").classList.remove("showText");
+    document.querySelector("#desc2").classList.add("hideText");
+  } else if (number === 3) {
+    document.querySelector("#desc3").classList.remove("showText");
+    document.querySelector("#desc3").classList.add("hideText");
+  }  else {
+    document.querySelector("#desc4").classList.remove("showText");
+    document.querySelector("#desc4").classList.add("hideText");
+  }
+}
+
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+            <p class="h-title">우리의 행복한 시간💗</p>
+          </div>
+      <div class="photos">
+        <div id="image1" class="photo-frame"
+            onmouseover="hideText(1)"
+	        onmouseout="showText(1)">
+            
+          <span id="desc1" class="photo-description">
+           동탄에 있는 대형 베이커리<br>카페에 간 날!<br>날씨도 좋고 룰루랄라~𝅘𝅥𝅮𝅘𝅥𝅰
+          </span>
+        </div>
+        <div id="image2" class="photo-frame"
+            onmouseover="hideText(2)"
+	        onmouseout="showText(2)">
+            
+          <span id="desc2" class="photo-description">
+           전화 1000통 끝에 예약했던 <br>야키토리파노가서<br> 즐거운 먹방ദ്ദി*ˊᗜˋ*) <br> (a.k.a존맛탱 오이무침)
+      
+          </span>
+        </div>
+        <div id="image3" class="photo-frame"
+            onmouseover="hideText(3)"
+            onmouseout="showText(3)">
+          <span id="desc3" class="photo-description">
+            유럽가기 전 떨리는 맘으로<br>연남 루프탑에서 사치 ㅎㅎ <br>(어이 거기 형씨!! 표정 피시라우~๑¯д¯๑)
+          </span>
+        </div>
+        <div id="image4" class="photo-frame"
+            onmouseover="hideText(4)"
+	        onmouseout="showText(4)">
+          <span id="desc4" class="photo-description">
+            👆돌연 만득이가 되어버린 황쭌..늘어난 볼만큼 귀여움을 획득했다고(?)
+          </span>
+        </div>
+      </div>
+      <div class="footer">
+        <p class="f-title">Made By Jihyun ❁ᴗ͈ ˬ ᴗ͈)⁾⁾⁾</p>
+        <p class="f-date">2023.02.09</p>
+      </div>
+    </div>
+  </body>
+</html>
